@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="content">
+		<!-- TABELA -->
+		<p:messages id="messages" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+
+
+
+		<div class="card product">
+			<h:form id="form">
+				<!-- MENU -->
+
+
+
+				<p:dataView var="setup" value="#{setupBean.list}" rows="12"
+					paginator="true" rowsPerPageTemplate="6,12,16"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+
+
+					<p:dataViewGridItem>
+
+
+
+						<div class="product-grid-item card border-1">
+
+							<div class="product-grid-item-content">
+								<img src="#{request.contextPath}#{setup.imagePath}"
+									style="width: 150px" />
+								<div class="product-name">#{setup.name}</div>
+
+							</div>
+						</div>
+					</p:dataViewGridItem>
+
+					<p:dataViewListItem>
+						<div class="product-list-item">
+							<img src="#{request.contextPath}#{setup.imagePath}"
+								style="width: 150px" />
+
+							<div class="product-list-detail">
+								<div class="product-name">#{setup.name}</div>
+							</div>
+						</div>
+					</p:dataViewListItem>
+
+				</p:dataView>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+
+</html>
